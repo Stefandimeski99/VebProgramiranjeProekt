@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+
+    <div class="welcome">
+        <h1 th:text="'Hello ' + ${userName} + ', welcome to our page'"></h1>
+    </div>
+    <div>
+        <div class="bikeRents" th:if="${bikes.size() > 0}">
+            <div>
+                <h4>Your currently rent bikes: </h4>
+            </div>
+            <table>
+                <tr>
+                    <td>Brand</td>
+                    <td>Color</td>
+                    <td>Type</td>
+                    <td>Options</td>
+                </tr>
+                <tr class="item" th:each="bike : ${bikes}">
+                    <td th:text="${bike.getBrand()}"></td>
+                    <td th:text="${bike.getColor()}"></td>
+                    <td th:text="${bike.getBikeType()}"></td>
+                    <td>
+                        <form th:method="post" th:action="@{'/home/dropARent/{id}' (id = ${bike.getBikeId()})}">
+                            <button type="submit">Drop the rent</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="userCash">
+            <h4 th:text="'Your cash: ' + ${userCash}"></h4>
+        </div>
+    </div>
+    <br>
+    <div th:each="shop : ${shops}">
+        <h1><a th:href="@{'/shop/{id}' (id = ${shop.getShopId()})}" th:text="${shop.getShopName()}"></a></h1>
+    </div>
+
+    <div>
+        <ul id="nav">
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop Details</title>
+</head>
+<body>
+    <div class="shopName">
+        <h2 th:text="${bikeShopName}"></h2>
+    </div>
+    <br>
+    <div class="shopBikes">
+        <div>
+            <table>
+                <tr class="item">
+                    <th>Brand</th>
+                    <th>Color</th>
+                    <th>Bike Type</th>
+                    <th>Price</th>
+                    <th>Options</th>
+                </tr>
+                <tr class="item" th:each="bike : ${bikesList}">
+                    <td th:text="${bike.getBrand()}"></td>
+                    <td th:text="${bike.getColor()}"></td>
+                    <td th:text="${bike.getBikeType()}"></td>
+                    <td th:text="${bike.getPrice()}"></td>
+                    <td>
+                        <form th:method="post" th:action="@{'/shop/rentABike/{id}' (id = ${bike.getBikeId()})}">
+                            <button type="submit">Rent</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h5 th:text="'Total shop money: ' + ${shopMoney}"></h5>
+        </div>
+    </div>
+
+    <!-- TODO -->
+    <div class="shopLocation">
+
+    </div>
+
+    <div>
+        <ul id="nav">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>

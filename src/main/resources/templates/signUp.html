@@ -1,0 +1,79 @@
+<!DOCTYPE HTML >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign up </title>
+</head> 
+<body>
+    <div class="Signup">
+        <form th:method="post" th:action="@{'/register/registerUser'}">
+            <!-- <img src="yes.png"> za user icon slikata -->
+            <h1>SIGN UP</h1>
+            <div>
+                <h4 th:if="${hasError}" th:text="${error}"></h4>
+            </div>
+            <label>Username:</label> <input placeholder="Your username" class="input-box" name="username" required="required">
+            <br>
+            <label>Password:</label> <input type="password" class="input-box" placeholder="Your password" name="password" required="required">
+            <br>
+            <label>Confirm Password:</label> <input type="password" class="input-box" placeholder="Confirm password" name="confirmPassword" required="required">
+            <br>
+            <label>Money:</label> <input type="number"  class="input-box" placeholder="Your money" name="money" required="required">
+            <br>
+            <input type="checkbox" required="required"> <label>I accept the Terms of Use & Privacy Policy</label> <br>
+            <button type="submit" class="sign-btn">Sign up</button>
+        </form>
+    </div>
+</body>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif; 
+            background-image:url(no.jpg);
+            background-size: cover;
+            background-position: none;
+        }
+        h4{
+            background: #ed4e5c;
+        }
+        .Signup{
+        width: 300px;
+            box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+            background: #fff;
+            padding: 20px;
+            margin: 8% auto 0;
+            text-align: center;
+        }
+        .Signup h1 {
+            color: #1c8adb;
+            margin-bottom: 30px;
+            margin-top: px;
+        }
+        .input-box{
+            border-radius: 20px;
+            padding: 5px;
+            margin: 8px 0;
+            width:100%;
+            border: 1px solid #999;
+            outline: none;
+        }
+        button{
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            border-radius: 20px;
+            font-size: 15px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .sign-btn{
+            background-color: #1c8adb;
+        }
+        img{
+            width: 60px;
+            margin-top: -10px;
+        }
+    </style>
+</html>
