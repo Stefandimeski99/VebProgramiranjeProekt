@@ -1,6 +1,67 @@
 <!DOCTYPE HTML >
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
+        <style th:inline="text">
+            body{
+                margin: 0px;
+                padding: 0px;
+                font-family: sans-serif;
+                background-size: cover;
+                background: url([[@{/img/loginPageBg.jpg}]]) no-repeat center center fixed;
+
+            }
+            .Login{
+                width: 300px;
+                background: none;
+                margin: 8% auto 0;
+                padding: 20px;
+                box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
+                text-align: center;
+            }
+            .Login h1{
+                color: darkgray;
+                margin-bottom: 30px;
+                font-size: 30px;
+            }
+
+            .Login h2{
+                color: #21afde;
+            }
+            .input-box {
+                border-radius: 20px;
+                padding: 7px;
+                margin: 10px 0px;
+                width: 100%;
+                border: 1px solid #999;
+                background-color: transparent;
+                margin-right: -5px;
+            }
+            button{
+                color: #fff;
+                width: 100%;
+                padding: 10px;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 15px;
+                margin:10px 0;
+                border: none;
+                outline: none;
+            }
+            .Login-btn {
+                background-color: #21afde;
+            }
+            a {
+                text-decoration: none;
+            }
+            .welcome{
+                text-align: center;
+                padding-top: 50px;
+                color: lightgray;
+                font-size: 40px;
+                margin-left: 20px;
+            }
+        </style>
+
         <title>Login page</title>
     </head>
     <body>
@@ -31,64 +92,5 @@
         </form>
     </body>
 </html>
-  <style>
-      body{
-          margin: 0px;
-          padding: 0px;
-          font-family: sans-serif;
-          background-size: cover;
-          background-image: url(loginPageBg.jpg);
-      }
-      .Login{
-          width: 300px;
-          background: none;
-          margin: 8% auto 0;
-          padding: 20px;
-          box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
-          text-align: center;
-      }
-      .Login h1{
-          color: darkgray;
-          margin-bottom: 30px;
-          font-size: 30px;
-      }
-      
-      .Login h2{
-          color: #21afde;
-      }
-      .input-box {
-          border-radius: 20px;
-          padding: 7px;
-          margin: 10px 0px;
-          width: 100%;
-          border: 1px solid #999;
-          background-color: transparent;
-          margin-right: -5px;
-      }
-      button{
-          color: #fff;
-          width: 100%;
-          padding: 10px;
-          border-radius: 20px;
-          cursor: pointer;
-          font-size: 15px;
-          margin:10px 0;
-          border: none;
-          outline: none;
-      }
-      .Login-btn {
-          background-color: #21afde;
-      }
-      a {
-          text-decoration: none;
-      }
-      .welcome{
-          text-align: center;
-          padding-top: 50px;
-          color: lightgray;
-          font-size: 40px;
-          margin-left: 20px;
-      }
-    </style>
 
    

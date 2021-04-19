@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/home">Bike Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+
+        </ul>
+        <a class="nav-item nav-link disabled" th:text="'Your cash: ' + ${userCash}" href="#"></a>
+        <div class="navbar-text" th:text="'Hello ' + ${userName} + ', welcome to our page'">
+
+
+        </div>
+        <form class="form-inline my-2 my-lg-0">
+            <div>&nbsp;&nbsp;&nbsp;</div>
+            <a class="btn btn-outline-info" href="/logout">Logout</a>
+        </form>
+    </div>
+</nav>
     <div class="welcome">
-        <h1 th:text="'Hello ' + ${userName} + ', welcome to our page'"></h1>
+        <h1 ></h1>
     </div>
     <div>
         <div class="bikeRents" th:if="${bikes.size() > 0}">
@@ -33,20 +59,20 @@
                 </tr>
             </table>
         </div>
-        <div class="userCash">
-            <h4 th:text="'Your cash: ' + ${userCash}"></h4>
-        </div>
+
     </div>
     <br>
-    <div th:each="shop : ${shops}">
-        <h1><a th:href="@{'/shop/{id}' (id = ${shop.getShopId()})}" th:text="${shop.getShopName()}"></a></h1>
+<div >
+    <div class="row">
+        <div  class="col-12">
+            <ul class="list-group">
+                <li th:each="shop : ${shops}" class="list-group-item"><h1 class="m-auto"><a class="m-auto" th:text="${shop.getShopName()}" th:href="@{'/shop/{id}' (id = ${shop.getShopId()})}">Go to shop details</a></h1></li>
+            </ul>
+        </div>
     </div>
+</div>
 
-    <div>
-        <ul id="nav">
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </div>
+
 
 </body>
 </html>

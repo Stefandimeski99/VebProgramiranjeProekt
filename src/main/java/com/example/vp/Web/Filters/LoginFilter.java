@@ -23,8 +23,8 @@ public class LoginFilter extends HttpFilter {
         User user = (User)request.getSession().getAttribute("user");
         String path = request.getServletPath();
 
-        if (!"/login".equals(path) && user == null && !"/login/userLogin".equals(path) && !"/h2".equals(path)
-            && !"/register".equals(path) && !"/register/registerUser".equals(path)) {
+        if (!"/login".equals(path) && user == null && !"/login/userLogin".equals(path) && !"/img/no.jpg".equals(path) && !"/h2".equals(path)
+            && !"/register".equals(path) && !"/register/registerUser".equals(path)&&!"/img/loginPageBg.jpg".equals(path)) {
             response.sendRedirect("/login");
         } else {
             super.doFilter(request, response, chain);
