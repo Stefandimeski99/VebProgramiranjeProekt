@@ -1,3 +1,3 @@
 # VebProgramiranjeProekt
 
-Ej bratu moj mili
+Bike shop application
